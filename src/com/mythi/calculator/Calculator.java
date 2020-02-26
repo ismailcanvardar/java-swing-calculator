@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Calculator implements ActionListener {
+public class Calculator extends Converter implements ActionListener, Operation {
 
     JTextField txtNumber1, txtNumber2, txtResult;
     JButton addButton, subsButton, multButton, divideButton, clearButton;
@@ -78,43 +78,28 @@ public class Calculator implements ActionListener {
         mainWindow.setSize(640, 480);
     }
 
-    public static int convertToNumber(String text) {
-        int num = Integer.parseInt(text);
-
-        return num;
-    }
-
-    public static String convertToString(int number) {
-        String convertedInt = String.valueOf(number);
-        return convertedInt;
-    }
-
     public static int add(String num1, String num2) {
-        int a = convertToNumber(num1);
-        int b = convertToNumber(num2);
+        int numbers[] = convertToInt(num1, num2);
 
-        return a + b;
+        return numbers[0] + numbers[1];
     }
 
     public static int substract(String num1, String num2) {
-        int a = convertToNumber(num1);
-        int b = convertToNumber(num2);
+        int numbers[] = convertToInt(num1, num2);
 
-        return a - b;
+        return numbers[0] - numbers[1];
     }
 
     public static int multiple(String num1, String num2) {
-        int a = convertToNumber(num1);
-        int b = convertToNumber(num2);
+        int numbers[] = convertToInt(num1, num2);
 
-        return a * b;
+        return numbers[0] * numbers[1];
     }
 
     public static int divide(String num1, String num2) {
-        int a = convertToNumber(num1);
-        int b = convertToNumber(num2);
+        int numbers[] = convertToInt(num1, num2);
 
-        return a / b;
+        return numbers[0] / numbers[1];
     }
 
     public void actionPerformed(ActionEvent e) {
