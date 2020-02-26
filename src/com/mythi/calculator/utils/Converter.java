@@ -1,4 +1,4 @@
-package com.mythi.calculator;
+package com.mythi.calculator.utils;
 
 public abstract class Converter {
     public static int[] convertToInt(String number1, String number2) {
